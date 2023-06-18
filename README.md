@@ -22,5 +22,6 @@
  ```
     npx sequelize init
     npx sequelize db:create
-
+    npx sequelize model:generate --name Booking --attributes flightId:integer,userId:integer,status:enum
+    
 ```
