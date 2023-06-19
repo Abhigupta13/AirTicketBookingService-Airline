@@ -1,0 +1,3 @@
+1. implement update booking api
+2. read about winston npm
+3. complete error handling in flight and search service

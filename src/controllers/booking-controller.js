@@ -20,7 +20,27 @@ const create =async(req, res)=> {
         });
     }
 }
+const cancel =async(req, res)=> {
+    try {
+        const response = await bookingService.cancelBooking(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            message: 'Successfully cancelled booking',
+            success: true,
+            err: {},
+            data: response
+        })
+    } catch (error) {
+        return res.status(error.statusCode).json({
+            message: error.message,
+            success: false,
+            err: error.explanation,
+            data: {}
+        });
+    }
+}
+
  
 module.exports={
-    create
+    create,
+    cancel
 }

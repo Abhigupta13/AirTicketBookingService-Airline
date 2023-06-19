@@ -19,13 +19,36 @@ class BookingRepository {
                 StatusCodes.INTERNAL_SERVER_ERROR);
         }
     }
+    async get(bookingId) {
+        try {
+            const booking = await Booking.findByPk(bookingId);
+            return booking;
+        } catch (error) {
+            if(error.name == 'SequelizeValidationError') {
+                throw new ValidationError(error);
+            }
+            throw new AppError(
+                'RepositoryError', 
+                'Cannot get Booking', 
+                'There was some issue creating the booking, please try again later',
+                StatusCodes.INTERNAL_SERVER_ERROR);
+        }
+    }
     async update(bookingId, data) {
         try {
+            console.log(data);
             const booking = await Booking.findByPk(bookingId);
             if(data.status) {
                 booking.status = data.status;
+                
             }
+            if(data.noOfSeats) {
+                booking.noOfSeats = data.noOfSeats
+
+            }
+            console.log(booking);
             await booking.save();
+            console.log(booking);
             return booking;
         } catch (error) {
             throw new AppError(
