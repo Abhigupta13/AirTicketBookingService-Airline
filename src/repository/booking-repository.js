@@ -46,9 +46,12 @@ class BookingRepository {
                 booking.noOfSeats = data.noOfSeats
 
             }
-            console.log(booking);
+            console.log("before booking.save()");
+
             await booking.save();
-            console.log(booking);
+
+            console.log("after booking.save()");
+
             return booking;
         } catch (error) {
             throw new AppError(

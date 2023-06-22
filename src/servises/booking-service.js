@@ -41,6 +41,7 @@ class BookingService{
             const booking = await this.bookingRepository.get(bookingId);
             let getFlightRequestURL= `${FLIGHT_SERVICE_PATH}/api/v1/flights/${booking.flightId}`;
             const response = await axios.get(getFlightRequestURL);
+            // console.log(response);
             const flightData = response.data.data;
             if(booking.noOfSeats == 0){
                 throw new ServiceError('Something went wrong in the booking process', 'no seats to cancel the flight');
