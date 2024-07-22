@@ -1,6 +1,10 @@
 #### Booking Service for Airline
 
-
+``` If you are cloning this service 
+npm install
+then sequelize commands 
+npm start for starting the server
+```
 ` Starting new service`
 
  - commands
@@ -18,7 +22,7 @@
     npm i dotenv
     npm i morgan
 ```
- step-2 after setup basic express server
+ step-2 after setup basic express server setup the ORM for database sync
  ```
     npx sequelize init
     npx sequelize db:create
