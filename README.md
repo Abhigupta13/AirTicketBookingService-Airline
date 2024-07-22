@@ -1,6 +1,6 @@
-#### Booking Service for Airline
-
-``` If you are cloning this service 
+## Booking Service for Airline
+If you are cloning this service
+```  
 npm install
 then sequelize commands 
 npm start for starting the server
